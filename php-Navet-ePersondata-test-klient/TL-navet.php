@@ -13,11 +13,11 @@ $wsdl = 'file://' . dirname(__FILE__) . DIRECTORY_SEPARATOR . 'navet.wsdl';
 $client = new SoapClient($wsdl, $options);
 if (!empty($_POST['pnr'])) { $pnr = $_POST['pnr']; } else { $pnr = '194107086995'; };
 $argument  = [
-		"Bestallning" => array(
-			"OrgNr" => 162021004748, 
-			"BestallningsId" => '00000079-FO01-0001'
-			),
-		"PersonId" => $pnr
+	"Bestallning" => array(
+		"OrgNr" => 162021004748, 
+		"BestallningsId" => '00000079-FO01-0001'
+		),
+	"PersonId" => $pnr
 	];
 print json_encode( (array)$client->getData( $argument ), JSON_UNESCAPED_UNICODE );
 ?>
